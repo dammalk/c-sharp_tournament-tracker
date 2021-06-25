@@ -114,7 +114,7 @@ namespace TrackerUI
             }
         }
 
-        private void removeSelectedTeamButton_Click(object sender, EventArgs e)
+        private void removeSelectedTeamMemberButton_Click(object sender, EventArgs e)
         {
             PersonModel p = (PersonModel)teamMembersListBox.SelectedItem;
 
