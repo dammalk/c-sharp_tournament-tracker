@@ -91,7 +91,7 @@ namespace TrackerLibrary.DataAccess
 
                 SaveTournamentEntries(connection, model);
 
-                SaveTournamentRouns(connection, model);
+                SaveTournamentRounds(connection, model);
             }
         }
 
@@ -133,7 +133,7 @@ namespace TrackerLibrary.DataAccess
             }
         }
 
-        private void SaveTournamentRouns(IDbConnection connection, TournamentModel model)
+        private void SaveTournamentRounds(IDbConnection connection, TournamentModel model)
         {
             foreach (List<MatchupModel> round in model.Rounds)
             {

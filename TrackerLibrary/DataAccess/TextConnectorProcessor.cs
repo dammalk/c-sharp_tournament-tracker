@@ -132,10 +132,10 @@ namespace TrackerLibrary.DataAccess.TextHelpers
 
                 // Capture Rounds information
                 string[] rounds = cols[5].Split('|');
-                List<MatchupModel> ms = new List<MatchupModel>();
 
                 foreach (string round in rounds)
                 {
+                    List<MatchupModel> ms = new List<MatchupModel>();
                     string[] msText = round.Split('^');
 
                     foreach (string matchupModelTextId in msText)
