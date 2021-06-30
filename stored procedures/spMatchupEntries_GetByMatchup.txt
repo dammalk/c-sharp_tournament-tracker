@@ -1,0 +1,11 @@
+CREATE PROCEDURE dbo.spMatchupEntries_GetByMatchup
+	@MatchupId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+  select *
+	from dbo.MatchupEntries
+	where MatchupId = @MatchupId;
+END
+GO

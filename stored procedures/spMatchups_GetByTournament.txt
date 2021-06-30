@@ -1,0 +1,12 @@
+CREATE PROCEDURE dbo.spMatchups_GetByTournament
+	@TournamentId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+  select *
+	from dbo.Matchups
+	where TournamentId = @TournamentId
+	order by MatchupRound;
+END
+GO

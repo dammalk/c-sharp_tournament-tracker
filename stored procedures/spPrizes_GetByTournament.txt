@@ -1,0 +1,12 @@
+CREATE PROCEDURE dbo.spPrizes_GetByTournament
+	@TournamentId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+  select p.*
+	from dbo.Prizes p
+	inner join dbo.TournamentPrizes t on p.Id = t.PrizeId
+	where t.TournamentId = @TournamentId;
+END
+GO

@@ -1,0 +1,12 @@
+CREATE PROCEDURE dbo.spMatchups_Update
+	@Id int,
+	@WinnerId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+  update dbo.Matchups
+	set WinnerId = @WinnerId
+	where Id = @Id;
+END
+GO
