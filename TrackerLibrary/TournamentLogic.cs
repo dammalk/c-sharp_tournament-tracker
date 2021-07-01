@@ -8,8 +8,11 @@ using TrackerLibrary.Models;
 
 namespace TrackerLibrary
 {
+
     public static class TournamentLogic
     {
+        private static bool _isTournamentComplete = false;
+
         // Order the list of teams randomly
         // Check if the list is big enough - if not, add in byes (power of 2)
         // Create the first round of matchup
@@ -123,7 +126,10 @@ namespace TrackerLibrary
                 }
             }
 
-            CompleteTournament(model);
+            if (!_isTournamentComplete)
+            {
+                CompleteTournament(model);
+            }            
 
             return output - 1;
         }
@@ -131,6 +137,8 @@ namespace TrackerLibrary
         private static void CompleteTournament(TournamentModel model)
         {
             GlobalConfig.Connection.CompleteTournament(model);
+            _isTournamentComplete = true;
+
             TeamModel winners = model.Rounds.Last().First().Winner;
             TeamModel runnerUp = model.Rounds.Last().First().Entries.Where(x => x.TeamCompeting != winners).First().TeamCompeting;
 

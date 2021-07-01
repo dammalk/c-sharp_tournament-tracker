@@ -17,12 +17,11 @@ namespace TrackerLibrary.DataAccess
                  .LoadFile()
                  .ConvertToTournamentModels();
 
+            TournamentModel toDelete = tournaments.First(x => x.Id == model.Id);
 
-            tournaments.Remove(model);
+            tournaments.Remove(toDelete);
 
             tournaments.SaveToTournamentsFile();
-
-            TournamentLogic.UpdateTournamentResults(model);
         }
 
         public void CreatePerson(PersonModel model)
