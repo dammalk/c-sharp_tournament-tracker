@@ -1,0 +1,51 @@
+dbo.MatchupEntries
+- Id int
+- MatchupId int
+- ParentMatchupId int nullable
+- TeamCompetingId int nullable
+- Score float nullable
+
+dbo.Matchups
+- Id int
+- TournamentId int
+- WinnerId int nullable
+- MatchupRound int
+
+dbo.People
+- Id int
+- FirstName nvarchar(100)
+- LastName nvarchar(100)
+- EmailAddress nvarchar(100)
+- CellphoneNumber varchar(20) nullable
+
+dbo.Prizes
+- Id int
+- PlaceNumber int
+- PlaceName nvarchar(50)
+- PrizeAmount money nullable
+- PrizePercentage float nullable
+
+dbo.TeamMembers
+- Id int
+- TeamId int
+- PersonId int
+
+dbo.Teams
+- Id int
+- TeamName nvarchar(100)
+
+dbo.TournamentEntries
+- Id int
+- TournamentId int
+- TeamId int
+
+dbo.TournamentPrizes
+- Id int
+- TournamentId int
+- PrizeId int
+
+dbo.Tournaments
+- Id int
+- TournamentName nvarchar(200)
+- EntryFee money
+- Active bit
